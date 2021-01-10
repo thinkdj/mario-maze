@@ -16,6 +16,7 @@ $gameCellBorder: 2px solid #555;
 }
 .app-extras {
   margin-right: 10px;
+  span { margin-left: 10px }
 }
 .app-maze-game {
   align-items: center;
@@ -46,4 +47,7 @@ $gameCellBorder: 2px solid #555;
   height: auto;
   object-fit: contain;
   object-position: center;
+}
+.flip-horizontally {
+  transform: scaleX(-1);
 }

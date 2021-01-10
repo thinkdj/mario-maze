@@ -6,24 +6,42 @@
       <img src="/assets/logo.png" alt="" />
     </div>
     <div class="app-extras">
-      <a href="">Restart Game</a>
+      <span>
+        Moves: {{mazeData.meta.moves}}
+      </span>
+      <span>
+        Points: {{mazeData.meta.points}}
+      </span>
+      <span>
+        <a href="">Restart Game</a>
+      </span>
     </div>
   </div>
 
   <div class="app-maze-game">
-    <div class="app-maze-grid" [ngStyle]="{'grid-template-columns':'repeat('+columns+',1fr)', 'width.px': (columns*cellSize) }">
-    <ng-container *ngFor="let r of [1,1,1,1]">
-      <ng-container *ngFor="let c of [1,2,2,2]">
+    <div class="app-maze-grid"
+         [ngStyle]="{'grid-template-columns':'repeat('+columns+',1fr)', 'width.px': (columns*cellSize) }"
+         keypress [omitInputElements]="true" (keypressEmit)="handleKeypress($event)"
+    >
+    <ng-container *ngFor="let r of mazeData.rows">
+      <ng-container *ngFor="let b of mazeData.blocks">
+        <ng-container *ngIf="r===b.row">
         <div class="grid-block">
-          <img src="/assets/smb/mcoin.png" class="grid-image" alt="*" />
+          <ng-container *ngIf="b.element && b.element.assetUrl">
+            <img [src]="b.element.assetUrl" class="grid-image" alt="[*]"
+                 [ngClass]="{'flip-horizontally':b.element.type=='player'&&lastKeyPressed==='ArrowRight'}" />
+          </ng-container>
         </div>
+        </ng-container>
       </ng-container>
     </ng-container>
     </div>
   </div>
 
+  <!-- DEBUG -- >
   <pre>
     {{mazeData|json}}
   </pre>
+  <!-- -->
 
 </div>
