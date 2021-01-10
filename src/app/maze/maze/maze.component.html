@@ -1,1 +1,29 @@
-<p>maze works!</p>
+
+<div class="app-maze">
+
+  <div class="app-header">
+    <div class="app-logo">
+      <img src="/assets/logo.png" alt="" />
+    </div>
+    <div class="app-extras">
+      <a href="">Restart Game</a>
+    </div>
+  </div>
+
+  <div class="app-maze-game">
+    <div class="app-maze-grid" [ngStyle]="{'grid-template-columns':'repeat('+columns+',1fr)', 'width.px': (columns*cellSize) }">
+    <ng-container *ngFor="let r of [1,1,1,1]">
+      <ng-container *ngFor="let c of [1,2,2,2]">
+        <div class="grid-block">
+          <img src="/assets/smb/mcoin.png" class="grid-image" alt="*" />
+        </div>
+      </ng-container>
+    </ng-container>
+    </div>
+  </div>
+
+  <pre>
+    {{mazeData|json}}
+  </pre>
+
+</div>

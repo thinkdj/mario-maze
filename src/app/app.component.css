@@ -1,0 +1,8 @@
+.app-shell {
+  font-family: "Open Sans", "Segoe UI", sans-serif;
+  font-size: 0.96rem;
+  color: #555;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+}
