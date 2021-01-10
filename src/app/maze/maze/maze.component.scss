@@ -1,0 +1,49 @@
+
+
+$gameCellBorder: 2px solid #555;
+
+.app-maze {
+  width: auto;
+  margin: 0 auto;
+}
+
+.app-header,
+.app-extras,
+.app-maze-game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-extras {
+  margin-right: 10px;
+}
+.app-maze-game {
+  align-items: center;
+  justify-content: center;
+}
+.app-maze-grid {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 0;
+  width: auto;
+  border: $gameCellBorder;
+}
+
+.grid-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: $gameCellBorder;
+}
+.grid-block::before {
+  content: "";
+  padding-bottom: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+.grid-image {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
