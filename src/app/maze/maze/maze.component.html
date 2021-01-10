@@ -6,13 +6,13 @@
       <img src="/assets/logo.png" alt="" />
     </div>
     <div class="app-extras">
-      <span>
-        Moves: {{mazeData.meta.moves}}
+      <span class="extra">
+        Moves: <span class="serif">{{mazeData.meta.moves}}</span>
       </span>
-      <span>
-        Points: {{mazeData.meta.points}}
+      <span class="extra">
+        Points: <span class="serif">{{mazeData.meta.points}}</span>
       </span>
-      <span>
+      <span class="extra">
         <a href="">Restart Game</a>
       </span>
     </div>
@@ -36,6 +36,12 @@
       </ng-container>
     </ng-container>
     </div>
+    <ng-container *ngIf="gameStatus==='ended'">
+      <div class="app-maze-message">
+        <h2>Congratulations!</h2>
+        <span>You have completed the game in <span class="serif">{{mazeData.meta.moves}}</span> moves.</span>
+      </div>
+    </ng-container>
   </div>
 
   <!-- DEBUG -- >

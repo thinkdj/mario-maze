@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { default as mazeSprites } from './maze-sprites.json';
 
 export interface GameSprite {
   id: number;
@@ -38,6 +37,7 @@ export class MazeComponent implements OnInit {
 
   /* Internal variables */
   lastKeyPressed = '';
+  gameStatus: 'pending'|'playing'|'ended' = 'pending';
   mazeData: any = {
     meta: {
       moves: 0,
@@ -140,6 +140,7 @@ export class MazeComponent implements OnInit {
     const idx: string = 'r' + String(~~(this.rows / 2)) + 'c' + String(~~(this.columns / 2));
     this.mazeData.blocks[ this.mazeData.blocks.findIndex(b => b.uid === idx) ].element =
       this.gameSprites[this.gameSprites.findIndex(e => e.type === 'player')];
+    this.mazeData.meta.collectibles = this.mazeData.blocks.filter( e => e.element && e.element.type === 'collectible').length;
   }
   movePlayer(uidFrom, uidTo): void {
     console.log(uidFrom,uidTo);
@@ -149,6 +150,7 @@ export class MazeComponent implements OnInit {
     /* To block has some sprite */
     if (blockTo.element && blockTo.element.id) {
       this.mazeData.meta.points += blockTo.element.points;
+      this.mazeData.meta.collectibles -= 1;
       if (blockTo.element.audioUrl) {
         const audioEl = new Audio(blockTo.element.audioUrl);
         audioEl.play();
@@ -158,9 +160,14 @@ export class MazeComponent implements OnInit {
     blockTo.traversed = 1;
     blockTo.element = playerBlock;
     this.mazeData.meta.moves += 1;
+    if (!this.mazeData.meta.collectibles) {
+      this.bgm(true);
+      this.gameStatus = 'ended';
+    }
   }
 
   handleKeypress(key): void {
+    if ('ended' === this.gameStatus) return;
     const playerBlock = this.mazeData.blocks.find( el => el.element && el.element.type === 'player' );
     switch (key) {
       case 'w':
@@ -191,11 +198,13 @@ export class MazeComponent implements OnInit {
   /* No Operation */
   noop(): void { }
   /* Start the music */
+  audioEl = null;
   bgm(end = false): void {
-    const audioEl = new Audio(end ? '/assets/smb/smb_stage_clear.wav' : '/assets/smb/smb-start.mp3');
-    audioEl.volume = 0.360;
-    audioEl.loop = true;
-    audioEl.play();
+    this.audioEl ? this.audioEl.pause() : this.noop();
+    this.audioEl = new Audio(end ? '/assets/smb/smb_stage_clear.wav' : '/assets/smb/smb-start.mp3');
+    this.audioEl.volume = 0.360;
+    this.audioEl.loop = !end;
+    this.audioEl.play();
   }
 
 

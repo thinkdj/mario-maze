@@ -6,7 +6,9 @@ $gameCellBorder: 2px solid #555;
   width: auto;
   margin: 0 auto;
 }
-
+.app-maze-game {
+  position: relative;
+}
 .app-header,
 .app-extras,
 .app-maze-game {
@@ -16,7 +18,7 @@ $gameCellBorder: 2px solid #555;
 }
 .app-extras {
   margin-right: 10px;
-  span { margin-left: 10px }
+  .extra { margin-left: 10px }
 }
 .app-maze-game {
   align-items: center;
@@ -47,6 +49,20 @@ $gameCellBorder: 2px solid #555;
   height: auto;
   object-fit: contain;
   object-position: center;
+}
+.app-maze-message {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255,255,255,0.920);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Generic */
+.serif {
+  font-family: Georgia, serif;
 }
 .flip-horizontally {
   transform: scaleX(-1);
