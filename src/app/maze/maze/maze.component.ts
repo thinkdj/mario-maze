@@ -52,7 +52,7 @@ export class MazeComponent implements OnInit {
       id: 0,
       type: 'player',
       name: 'Mario',
-      assetUrl: '/assets/smb/m.png',
+      assetUrl: 'assets/smb/m.png',
       audioUrl: null,
       points: 0
     },
@@ -60,24 +60,24 @@ export class MazeComponent implements OnInit {
       id: 1,
       type: 'collectible',
       name: 'Coin',
-      assetUrl: '/assets/smb/mcoin.png',
-      audioUrl: '/assets/smb/smb_coin.wav',
+      assetUrl: 'assets/smb/mcoin.png',
+      audioUrl: 'assets/smb/smb_coin.wav',
       points: 1
     },
     {
       id: 2,
       type: 'collectible',
       name: 'Red Mushroom',
-      assetUrl: '/assets/smb/shroom-red.png',
-      audioUrl: '/assets/smb/smb_power_up.mp3',
+      assetUrl: 'assets/smb/shroom-red.png',
+      audioUrl: 'assets/smb/smb_power_up.mp3',
       points: 2
     },
     {
       id: 3,
       type: 'collectible',
       name: 'Green Mushroom',
-      assetUrl: '/assets/smb/shroom-green.png',
-      audioUrl: '/assets/smb/smb_1up.wav',
+      assetUrl: 'assets/smb/shroom-green.png',
+      audioUrl: 'assets/smb/smb_1up.wav',
       points: 3
     },
   ];
@@ -201,7 +201,7 @@ export class MazeComponent implements OnInit {
   audioEl = null;
   bgm(end = false): void {
     this.audioEl ? this.audioEl.pause() : this.noop();
-    this.audioEl = new Audio(end ? '/assets/smb/smb_stage_clear.wav' : '/assets/smb/smb-start.mp3');
+    this.audioEl = new Audio(end ? 'assets/smb/smb_stage_clear.wav' : 'assets/smb/smb-start.mp3');
     this.audioEl.volume = 0.360;
     this.audioEl.loop = !end;
     this.audioEl.play();

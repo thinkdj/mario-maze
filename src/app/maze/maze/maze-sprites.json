@@ -3,7 +3,7 @@
     "id": 0,
     "type": "player",
     "name": "Mario",
-    "assetUrl": "/assets/smb/m.png",
+    "assetUrl": "assets/smb/m.png",
     "audioUrl": null,
     "points": 0
   },
@@ -11,24 +11,24 @@
     "id": 1,
     "type": "collectible",
     "name": "Coin",
-    "assetUrl": "/assets/smb/mcoin.png",
-    "audioUrl": "/assets/smb/smb_coin.wav",
+    "assetUrl": "assets/smb/mcoin.png",
+    "audioUrl": "assets/smb/smb_coin.wav",
     "points": 1
   },
   {
     "id": 2,
     "type": "collectible",
     "name": "Red Mushroom",
-    "assetUrl": "/assets/smb/shroom-red.png",
-    "audioUrl": "/assets/smb/smb_power_up.mp3",
+    "assetUrl": "assets/smb/shroom-red.png",
+    "audioUrl": "assets/smb/smb_power_up.mp3",
     "points": 2
   },
   {
     "id": 3,
     "type": "collectible",
     "name": "Green Mushroom",
-    "assetUrl": "/assets/smb/shroom-green.png",
-    "audioUrl": "/assets/smb/smb_1up.wav",
+    "assetUrl": "assets/smb/shroom-green.png",
+    "audioUrl": "assets/smb/smb_1up.wav",
     "points": 3
   },
 ]
