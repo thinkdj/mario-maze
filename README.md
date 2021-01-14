@@ -4,38 +4,42 @@
 
 Collect all the collectibles on the game board using the minimum number of steps
 
-[Hosted Playable Demo](https://think.dj/projects/convo/mario-maze/?from=github)
+[Hosted/Playable Demo](https://think.dj/projects/convo/mario-maze/?from=github)
 
 *Collectible points:*
 
- * Coin: +1
- * Red Mushroom (Super): +2
- * Green Mushroom (1Up): +3
+ * Coin: ![coin](src/assets/docs/mcoin.png) +1
+ * Red Mushroom (Super): ![coin](src/assets/docs/shroom-red.png) +2
+ * Green Mushroom (1Up): ![coin](src/assets/docs/shroom-green.png) +3
+
+*Controls*
+
+![controls](src/assets/docs/wasd.png)
 
 ### XP Enhancements
- * Original Mario sound effects and music for retro-feel
- * Mario's sprite responds to direction of motion
- * Moves count and Points always displayed on HUD
+ * Original Mario music and sound effects for them retro-feel
+ * Mario responds to the direction of motion
+ * Moves count and Points are always displayed on HUD
 
 _______
 
 ### Optimizations
 * Modern CSS3 Flexbox and Grid for unrestricted board blocks
 * Prefetch of game sprites and assets
-* Lazy Loaded modules
+* Lazy-loaded modules
 * Best practices for the app has been followed (eg: Interfaces for DOs, JSON for defining the game's `collectibles`)
 
 ### Caveats
-The code has been optimized for more dynamicity & code readability than for performance
+For this project, the code has been written for more dynamicity & code readability than for performance
 
 ```
 E.g:
-[1] 
-this.gameSprites.findIndex(e => e.name === 'Red Mushroom') 
-instead of using fixed indexes / constants
+[1]
+this.gameSprites.findIndex(e => e.type === 'collectibles') 
+Use of find/filter instead of using fixed indexes / constants
 [2]
 An Object is used as the primary data structure. 
-A 2D array would perform much better for grid data.
+A 2D array would perform much better for grid data
 ```
 ________
 
