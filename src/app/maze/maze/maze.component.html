@@ -1,4 +1,3 @@
-
 <div class="app-maze">
 
   <div class="app-header">
@@ -15,6 +14,9 @@
       <span class="extra">
         <a href="">Restart Game</a>
       </span>
+      <span class="extra">
+        <a class="github-button" href="https://github.com/thinkdj/mario-maze" data-size="large" aria-label="Download thinkdj/mario-maze on GitHub" target="_blank">Download</a>
+      </span>
     </div>
   </div>
 
@@ -26,9 +28,9 @@
     <ng-container *ngFor="let r of mazeData.rows">
       <ng-container *ngFor="let b of mazeData.blocks">
         <ng-container *ngIf="r===b.row">
-        <div class="grid-block">
+        <div class="grid-block" [id]="b.uid">
           <ng-container *ngIf="b.element && b.element.assetUrl">
-            <img [src]="b.element.assetUrl" class="grid-image" alt="[*]"
+            <img [src]="b.element.assetUrl" class="grid-image" [alt]="b.element.type=='player'?'[*]':'[$]'"
                  [ngClass]="{'flip-horizontally':b.element.type=='player'&&lastKeyPressed==='ArrowRight'}" />
           </ng-container>
         </div>

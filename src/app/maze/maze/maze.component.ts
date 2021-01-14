@@ -117,9 +117,13 @@ export class MazeComponent implements OnInit {
 
   getRandomBlock(): number {
     // "~~" for a closest "int"
-    // tslint:disable-next-line:no-bitwise
-    const randomId = this.mazeData.blocks[~~(this.mazeData.blocks.length * Math.random())].id;
-    return this.mazeData.blocks.findIndex( e => e.id === randomId );
+    const randomBlock = this.mazeData.blocks[~~(this.mazeData.blocks.length * Math.random())];
+    const idxPlayer: string = 'r' + String(~~(this.rows / 2)) + 'c' + String(~~(this.columns / 2));
+    // Random Block must not be player's default box, nor should it be filled with an element
+    if (randomBlock.element || randomBlock.uid === idxPlayer) {
+      return this.getRandomBlock(); // Recursively find an empty block
+    }
+    return this.mazeData.blocks.findIndex( e => e.uid === randomBlock.uid );
   }
 
   generateRandomSprites(): void {
@@ -137,17 +141,19 @@ export class MazeComponent implements OnInit {
   }
 
   placePlayer(): void {
-    const idx: string = 'r' + String(~~(this.rows / 2)) + 'c' + String(~~(this.columns / 2));
-    this.mazeData.blocks[ this.mazeData.blocks.findIndex(b => b.uid === idx) ].element =
+    // tslint:disable-next-line:no-bitwise
+    const idxPlayer: string = 'r' + String(~~(this.rows / 2)) + 'c' + String(~~(this.columns / 2));
+    this.mazeData.blocks[ this.mazeData.blocks.findIndex(b => b.uid === idxPlayer) ].element =
       this.gameSprites[this.gameSprites.findIndex(e => e.type === 'player')];
     this.mazeData.meta.collectibles = this.mazeData.blocks.filter( e => e.element && e.element.type === 'collectible').length;
   }
+
   movePlayer(uidFrom, uidTo): void {
-    console.log(uidFrom,uidTo);
+    console.log(uidFrom, uidTo);
     const playerBlock = this.gameSprites.find( el => el.type === 'player' );
-    let blockFrom = this.mazeData.blocks.find( e => e.uid === uidFrom );
-    let blockTo = this.mazeData.blocks.find( e => e.uid === uidTo );
-    /* To block has some sprite */
+    const blockFrom = this.mazeData.blocks.find( e => e.uid === uidFrom );
+    const blockTo = this.mazeData.blocks.find( e => e.uid === uidTo );
+    /* `To` block has some sprite */
     if (blockTo.element && blockTo.element.id) {
       this.mazeData.meta.points += blockTo.element.points;
       this.mazeData.meta.collectibles -= 1;

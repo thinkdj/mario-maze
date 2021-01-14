@@ -9,6 +9,12 @@ $gameCellBorder: 2px solid #555;
 .app-maze-game {
   position: relative;
 }
+.app-header {
+  padding: 0 0 20px;
+}
+.app-logo img {
+  height: 50px;
+}
 .app-header,
 .app-extras,
 .app-maze-game {
@@ -17,8 +23,8 @@ $gameCellBorder: 2px solid #555;
   align-items: center;
 }
 .app-extras {
-  margin-right: 10px;
-  .extra { margin-left: 10px }
+  margin-right: 15px;
+  .extra { margin-left: 20px }
 }
 .app-maze-game {
   align-items: center;
