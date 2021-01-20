@@ -6,6 +6,8 @@ Collect all the collectibles on the game board using the minimum number of steps
 
 [Hosted/Playable Demo](https://think.dj/projects/convo/mario-maze/?from=github)
 
+![coin](docs/sample.png)
+
 *Collectible points:*
 
  * Coin: ![coin](src/assets/docs/mcoin.png) +1
