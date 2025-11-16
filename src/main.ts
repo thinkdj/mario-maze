@@ -1,12 +1,14 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MarioMazeGame } from './game';
+import './styles.css';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+// Initialize the game when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  const appContainer = document.getElementById('app');
 
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  if (appContainer) {
+    const game = new MarioMazeGame(appContainer);
+    game.init();
+  } else {
+    console.error('App container not found!');
+  }
+});

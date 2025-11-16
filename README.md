@@ -28,7 +28,8 @@ _______
 ### Optimizations
 * Modern CSS3 Flexbox and Grid for unrestricted board blocks
 * Prefetch of game sprites and assets
-* Lazy-loaded modules
+* Lightweight vanilla TypeScript implementation (no framework overhead)
+* Fast Vite build system with HMR (Hot Module Replacement)
 * Best practices for the app has been followed (eg: Interfaces for DOs, JSON for defining the game's `collectibles`)
 
 ### Caveats
@@ -46,15 +47,23 @@ A 2D array would perform much better for grid data
 ________
 
 ##### Development Info
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version **10.1**
+This project is built with **Vanilla TypeScript** and **Vite** for a lightweight, fast development experience.
+
 ###### Running the project
-Clone the repo and run `npm i` to install dependencies
+Clone the repo and run `npm install` to install dependencies
+
 ###### Development server
-Then run `ng serve -o` for a dev server. 
-The app will run at `http://localhost:4200/`. 
-It will automatically reload if you change any of the source files.
+Then run `npm start` or `npm run dev` for a dev server.
+The app will run at `http://localhost:4200/`.
+It will automatically reload with Hot Module Replacement (HMR) if you change any of the source files.
+
 ###### Building
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for the optimized production build config.
-###### Testing
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory, optimized for production.
+
+###### Preview production build
+Run `npm run preview` to preview the production build locally.
+
+---
+
+**Migration Note:** This project was originally built with Angular 10.1 and has been migrated to vanilla TypeScript for better performance, smaller bundle size, and easier maintenance.
 
