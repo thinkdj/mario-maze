@@ -96,11 +96,153 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.920);
+  background: rgba(255, 255, 255, 0.96);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.app-maze-message h2 {
+  margin: 0 0 25px 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.app-maze-message h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+.stats-container,
+.scoring-container {
+  background: white;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px 0;
+  min-width: 300px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-row.total {
+  border-top: 2px solid #555;
+  margin-top: 10px;
+  padding-top: 12px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-value.bonus {
+  color: #4CAF50;
+}
+
+.path-controls {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.path-btn {
+  padding: 12px 24px;
+  margin: 5px;
+  border: 2px solid #555;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.path-btn:hover {
+  background: #f5f5f5;
+}
+
+.path-btn.active {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.user-path-btn.active {
+  background: #2196F3;
+  border-color: #2196F3;
+}
+
+.optimal-path-btn.active {
+  background: #FF9800;
+  border-color: #FF9800;
+}
+
+.restart-section {
+  margin-top: 20px;
+}
+
+.restart-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.restart-btn:hover {
+  background: #45a049;
+  text-decoration: none;
+}
+
+/* Path Visualization */
+.grid-block {
+  position: relative;
+}
+
+.path-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.user-path {
+  color: #2196F3;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+.optimal-path {
+  color: #FF9800;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
 /* Generic */
