@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 
 export default defineConfig({
-  base: './',
+  // Use repository name for GitHub Pages, or './' for local/other deployments
+  base: process.env.GITHUB_ACTIONS ? '/mario-maze/' : './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
