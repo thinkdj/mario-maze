@@ -63,6 +63,17 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 ###### Preview production build
 Run `npm run preview` to preview the production build locally.
 
+###### Deployment
+This project includes automated CI/CD deployment to GitHub Pages:
+- **Automatic deployment**: Pushes to `main` or `master` branch automatically trigger deployment
+- **Manual deployment**: Use the "Actions" tab on GitHub to manually trigger deployment
+- **Live URL**: Once deployed, the game will be available at `https://<username>.github.io/mario-maze/`
+
+To enable GitHub Pages:
+1. Go to repository Settings → Pages
+2. Under "Build and deployment", select "GitHub Actions" as the source
+3. The workflow will automatically deploy on the next push to main/master
+
 ---
 
 **Migration Note:** This project was originally built with Angular 10.1 and has been migrated to vanilla TypeScript for better performance, smaller bundle size, and easier maintenance.
